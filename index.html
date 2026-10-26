@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendSmart - Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+     <header class="header">
+    <div class="header-content">
+        <div>
+            <h1>SpendSmart</h1>
+    <p>Manage your daily expenses easily.</p>
+          </div>
+    <button type="button" id="themeToggle">Dark Mode</button>
+     </div>
+</header>
+
+<main class="container">
+     <section class="summary">
+         <div class="summary-card">
+             <h3>Total Spent</h3>
+            <p id="totalSpent">₹0.00</p>
+         </div>
+
+        <div class="summary-card">
+            <h3>Total Transactions</h3>
+             <p id="totalTransactions">0</p>
+         </div>
+    </section>
+
+        <div class="dashboard">
+        <section class="panel">
+                <h2 id="formHeading">Add New Expense</h2>
+
+                <form id="expenseForm">
+                    <label for="title">Expense Name</label>
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="e.g. Lunch"
+                        maxlength="80"
+                        required
+                    >
+
+                    <label for="amount">Amount (₹)</label>
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="e.g. 150"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Choose a category</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+
+                    <button type="submit" id="submitButton">Add Expense</button>
+                    <button type="button" id="cancelEdit" hidden>Cancel Edit</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Spending by Category</h2>
+                <div id="categorySummary">
+                    <p>No expenses to display yet.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="panel transactions">
+            <h2>My Expenses</h2>
+
+            <div class="filters">
+                <div class="filter-field">
+                    <label for="filterCategory">Category</label>
+                    <select id="filterCategory">
+                        <option value="All">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="filter-field">
+                    <label for="filterMonth">Month</label>
+                    <input type="month" id="filterMonth">
+                </div>
+
+                <div class="filter-field">
+                    <label for="sortBy">Sort By</label>
+                    <select id="sortBy">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="highest">Highest Amount</option>
+                        <option value="lowest">Lowest Amount</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="expenseList" aria-live="polite">
+                <p>No expenses yet. Add your first expense!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>SpendSmart &copy; 2026 | Manage your money wisely.</p>
+    </footer>
+</body>
+</html>

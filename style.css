@@ -1,0 +1,358 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+    --background: #f4f6fb;
+    --surface: #ffffff;
+    --text: #25283d;
+    --muted: #777b90;
+    --border: #e1e4ef;
+    --primary: #6254d9;
+    --primary-hover: #5143c4;
+    --danger: #dc514f;
+    --track: #eeeefa;
+    --shadow: 0 4px 18px rgba(28, 32, 65, 0.06);
+}
+
+body.dark {
+    color-scheme: dark;
+    --background: #171827;
+    --surface: #25263a;
+    --text: #f4f4f8;
+    --muted: #b8bad0;
+    --border: #44465e;
+    --primary: #8a7df5;
+    --primary-hover: #a096ff;
+    --danger: #ef6966;
+    --track: #393b53;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background 0.2s, color 0.2s;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 11px 16px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.header {
+    background: var(--primary);
+    color: white;
+    padding: 25px 5%;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.header h1 {
+    font-size: 32px;
+    line-height: 1.3;
+}
+
+.header p {
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+#themeToggle {
+    background: white;
+    color: #5143c4;
+    white-space: nowrap;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.summary-card,
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.summary-card h3 {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.summary-card p {
+    font-size: 29px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-top: 8px;
+    overflow-wrap: anywhere;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+    align-items: start;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+#expenseForm {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+input::placeholder {
+    color: var(--muted);
+}
+
+#cancelEdit {
+    background: var(--muted);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.filter-field {
+    min-width: 0;
+}
+
+.filter-field label {
+    margin-bottom: 5px;
+}
+
+#expenseList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.empty-message {
+    color: var(--muted);
+    padding: 15px 0;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+}
+
+.expense-details {
+    min-width: 0;
+}
+
+.expense-details h3 {
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.expense-details p {
+    color: var(--muted);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.expense-amount {
+    font-weight: bold;
+    color: var(--danger);
+    white-space: nowrap;
+}
+
+.expense-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.expense-actions button {
+    padding: 7px 12px;
+    font-size: 13px;
+}
+
+.edit-btn {
+    background: var(--primary);
+}
+
+.delete-btn {
+    background: var(--danger);
+}
+
+.category-row {
+    margin-bottom: 20px;
+}
+
+.category-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.category-heading span:last-child {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.category-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--track);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.category-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 20px;
+    transition: width 0.3s;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+@media (max-width: 760px) {
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .summary-card,
+    .panel {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .header-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .summary {
+        gap: 10px;
+    }
+
+    .summary-card {
+        padding: 14px;
+    }
+
+    .summary-card p {
+        font-size: 21px;
+    }
+
+    .expense-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .expense-amount {
+        align-self: flex-start;
+    }
+}
